@@ -16,7 +16,16 @@ import javax.validation.constraints.Positive;
 @NoArgsConstructor
 @SuperBuilder
 @Data
-public class AddOrUpdateArticleConditionDTO extends BaseDTO {
+public class AddOrUpdateArticleConditionDTO {
+
+    @Positive
+    private Long id;
+
+    private Integer status;
+
+    private Long createdTime;
+
+    private Long updatedTime;
     @Positive
     private Long userId;
     @Positive

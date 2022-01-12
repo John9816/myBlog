@@ -2,8 +2,6 @@ package com.example.myblog.controller.article;
 
 import com.example.myblog.common.BaseErrorCodeEnum;
 import com.example.myblog.common.utils.ParameterCheckUtils;
-import com.example.myblog.convert.ArticleBOConvert;
-import com.example.myblog.convert.ConsoleArticleDTOConvert;
 import com.example.myblog.model.ResponseFactory;
 import com.example.myblog.model.bo.ArticleBO;
 import com.example.myblog.model.dto.PageDTO;
@@ -45,16 +43,12 @@ public class ArticleController {
         if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
             return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
         }
-        ArticleBO articleBO = ArticleBOConvert.toArticleBO(request);
-        articleWriteService.addArticle(articleBO);
-
+        articleWriteService.addArticle(condition);
         return ResponseFactory.success();
     }
 
     @PostMapping("/save")
     public CommonResponse saveArticle() {
-
-
         return ResponseFactory.success();
     }
 
@@ -62,9 +56,8 @@ public class ArticleController {
     public ConsoleQueryArticleResponse queryConsoleArticle(ConsoleQueryArticleRequest request) {
         PageDTO page = request.getPage();
         List<ArticleBO> articleBOList = articleReadService.queryConsoleArticle(page.getCurrentPage(), page.getPerPage());
-        List<ConsoleArticleDTO> articleDTOList = ConsoleArticleDTOConvert.toConsoleArticleDTOs(articleBOList);
         ConsoleQueryArticleDTO consoleQueryArticleDTO = new ConsoleQueryArticleDTO();
-        consoleQueryArticleDTO.setArticles(articleDTOList);
-        return ResponseFactory.success(articleDTOList, ConsoleQueryArticleResponse.class);
+
+        return ResponseFactory.success(null, ConsoleQueryArticleResponse.class);
     }
 }
