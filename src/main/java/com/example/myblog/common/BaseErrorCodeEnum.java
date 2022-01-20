@@ -5,7 +5,9 @@ package com.example.myblog.common;
  */
 public enum BaseErrorCodeEnum implements IError{
     SYSTEM_ERROR(00001, "系统错误"),
-    PARAMS_ERROR(00002, "参数错误");
+    PARAMS_ERROR(00002, "参数错误"),
+    FILE_IS_NOT_EXIST(00003, "文件不存在")
+    ;
 
 
     private final Integer errorCode;
