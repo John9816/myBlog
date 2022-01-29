@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
 
 /**
  * <p>
@@ -35,22 +33,5 @@ public class FileController {
         fileWriteService.uploadPicture(file);
         return ResponseFactory.success();
     }
-
-
-//    public static void main(String[] args) {
-//        File dir = new File("../../vs");
-//        String[] files = dir.list();
-//        for (String fileName : files) {
-//            // 为目录TestDir下的文件或目录创建File对象
-//            File f = new File(dir, fileName);
-//            if (f.isFile()) {
-//                System.out.println("文件名:"+f.getName());
-//                System.out.println("文件绝对路径：" + f.getAbsolutePath());
-//                System.out.println("文件路径：" + f.getPath());
-//            } else {
-//                System.out.println("子目录：" + f);
-//            }
-//        }
-//    }
 
 }
