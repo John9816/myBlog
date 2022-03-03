@@ -15,7 +15,10 @@ import java.util.List;
 @Component
 @Mapper
 public interface ArticleMapper {
-    void add(ArticleDO toArticleDO);
+
+    int add(ArticleDO articleDO);
 
     List<ArticleDO> listAll(@Param("currentPage") Integer currentPage, @Param("perPage") Integer perPage);
+
+    int update(ArticleDO articleDO);
 }

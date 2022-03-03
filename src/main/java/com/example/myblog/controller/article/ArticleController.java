@@ -47,8 +47,14 @@ public class ArticleController {
         return ResponseFactory.success();
     }
 
-    @PostMapping("/save")
-    public CommonResponse saveArticle() {
+    @PostMapping("/update")
+    public CommonResponse updateArticle(ConsoleAddOrUpdateArticleRequest request) {
+        AddOrUpdateArticleConditionDTO condition = request.getArticleDTO();
+        //校验合法性
+        if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
+            return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
+        }
+        articleWriteService.updateArticle(condition);
         return ResponseFactory.success();
     }
 

@@ -22,25 +22,43 @@
         id, user_id, category_id, article_cover, article_title, article_content, type, original_url, is_top, is_delete,
         status, created_time, updated_time
     </sql>
+    <sql id="not_deleted">
+        AND is_delete = 1
+    </sql>
 
     <insert id="add" parameterType="com.example.myblog.model.dao.ArticleDO">
         INSERT INTO article (<include refid="Base_Column_List"></include>)
         VALUES (#{id, jdbcType=BIGINT},
-        #{user_id, jdbcType=BIGINT},
-        #{category_id, jdbcType=BIGINT},
-        #{article_cover, jdbcType=VARCHAR},
-        #{article_title, jdbcType=VARCHAR},
-        #{article_content, jdbcType=VARCHAR},
+        #{userId, jdbcType=BIGINT},
+        #{categoryId, jdbcType=BIGINT},
+        #{articleCover, jdbcType=VARCHAR},
+        #{articleTitle, jdbcType=VARCHAR},
+        #{articleContent, jdbcType=VARCHAR},
         #{type, jdbcType=TINYINT},
-        #{original_url, jdbcType=VARCHAR},
-        #{is_top, jdbcType=INTEGER},
-        #{is_delete, jdbcType=INTEGER},
+        #{originalUrl, jdbcType=VARCHAR},
+        #{isYTp, jdbcType=INTEGER},
+        #{isDeleted, jdbcType=INTEGER},
         #{status, jdbcType=INTEGER},
         now(),
         now()
         )
 
     </insert>
+    <update id="update">
+        update article
+        set user_id = #{articleDO.userId},
+            category_id = #{articleDO.categoryId},
+            article_cover = #{articleDO.articleCover},
+            article_title = #{articleDO.articletitle},
+            article_content = #{articleDO.articleContent},
+            type = #{articleDO.type},
+            original_url = #{articleDO.originalUrl},
+            is_top = #{isTop},
+            status = #{status},
+            updated_time = now()
+        where id = #{articleDO.id}
+          <include refid="not_deleted"></include>
+    </update>
     <select id="listAll"  resultMap="baseMap">
     SELECT <include refid="Base_Column_List"/> FROM
     article

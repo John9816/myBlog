@@ -9,4 +9,7 @@ import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
 public interface IArticleWriteService {
 
     void addArticle(AddOrUpdateArticleConditionDTO condition);
+
+    void updateArticle(AddOrUpdateArticleConditionDTO condition);
+
 }
