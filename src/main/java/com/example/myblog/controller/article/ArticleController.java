@@ -66,4 +66,10 @@ public class ArticleController {
 
         return ResponseFactory.success(null, ConsoleQueryArticleResponse.class);
     }
+
+    @GetMapping("/test")
+    public ConsoleQueryArticleResponse test() {
+
+        return ResponseFactory.success("success", ConsoleQueryArticleResponse.class);
+    }
 }
