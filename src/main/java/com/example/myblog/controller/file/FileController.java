@@ -4,7 +4,7 @@
  */
 package com.example.myblog.controller.file;
 
-import com.example.myblog.model.ResponseFactory;
+import com.example.myblog.common.ResponseFactory;
 import com.example.myblog.model.response.CommonResponse;
 import com.example.myblog.service.file.FileWriteService;
 import org.springframework.web.bind.annotation.*;

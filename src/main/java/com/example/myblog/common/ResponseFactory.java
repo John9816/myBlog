@@ -1,10 +1,9 @@
-package com.example.myblog.model;
+package com.example.myblog.common;
 
-import com.example.myblog.common.BaseErrorCodeEnum;
-import com.example.myblog.common.IError;
 import com.example.myblog.common.constant.MethodNameConstant;
 import com.example.myblog.common.utils.MethodCacheManager;
 import com.example.myblog.exception.BizRuntimeException;
+import com.example.myblog.model.Status;
 import com.example.myblog.model.response.CommonResponse;
 
 import java.lang.reflect.Method;

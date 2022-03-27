@@ -2,7 +2,7 @@ package com.example.myblog.controller.article;
 
 import com.example.myblog.common.BaseErrorCodeEnum;
 import com.example.myblog.common.utils.ParameterCheckUtils;
-import com.example.myblog.model.ResponseFactory;
+import com.example.myblog.common.ResponseFactory;
 import com.example.myblog.model.bo.ArticleBO;
 import com.example.myblog.model.dto.PageDTO;
 import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
@@ -10,7 +10,6 @@ import com.example.myblog.model.dto.article.ConsoleQueryArticleDTO;
 import com.example.myblog.model.request.article.ConsoleAddOrUpdateArticleRequest;
 import com.example.myblog.model.request.article.ConsoleQueryArticleRequest;
 import com.example.myblog.model.response.CommonResponse;
-import com.example.myblog.model.response.article.ConsoleArticleDTO;
 import com.example.myblog.model.response.article.ConsoleQueryArticleResponse;
 import com.example.myblog.service.article.IArticleReadService;
 import com.example.myblog.service.article.IArticleWriteService;
