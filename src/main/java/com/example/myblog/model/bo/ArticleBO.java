@@ -1,7 +1,6 @@
 package com.example.myblog.model.bo;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 
 /**
@@ -10,7 +9,6 @@ import lombok.experimental.SuperBuilder;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
 public class ArticleBO extends BaseBO{
 
     private Long userId;

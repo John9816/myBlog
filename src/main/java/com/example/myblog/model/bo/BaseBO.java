@@ -3,7 +3,6 @@ package com.example.myblog.model.bo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
@@ -13,7 +12,6 @@ import java.util.Date;
  */
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder(toBuilder = true)
 @Data
 public class BaseBO {
     private Long    id;

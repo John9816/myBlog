@@ -1,9 +1,7 @@
 package com.example.myblog.model.dto.article;
 
 
-import com.example.myblog.model.dto.BaseDTO;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
@@ -14,17 +12,13 @@ import javax.validation.constraints.Positive;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
 @Data
 public class AddOrUpdateArticleConditionDTO {
 
     @Positive
     private Long id;
-
     private Integer status;
-
     private Long createdTime;
-
     private Long updatedTime;
     @Positive
     private Long userId;

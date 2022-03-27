@@ -37,7 +37,7 @@ public class ArticleController {
 
     @PostMapping("/add")
     public CommonResponse addArticle(ConsoleAddOrUpdateArticleRequest request) {
-        AddOrUpdateArticleConditionDTO condition = request.getArticleDTO();
+        AddOrUpdateArticleConditionDTO condition = request.getCondition();
         //校验合法性
         if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
             return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
@@ -48,7 +48,7 @@ public class ArticleController {
 
     @PostMapping("/update")
     public CommonResponse updateArticle(ConsoleAddOrUpdateArticleRequest request) {
-        AddOrUpdateArticleConditionDTO condition = request.getArticleDTO();
+        AddOrUpdateArticleConditionDTO condition = request.getCondition();
         //校验合法性
         if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
             return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
