@@ -1,13 +1,16 @@
 package com.example.myblog.controller.user;
 
 import com.example.myblog.common.ResponseFactory;
+import com.example.myblog.model.request.user.ConsoleGetUserContextRequest;
 import com.example.myblog.model.request.user.ConsoleLoginRequest;
 import com.example.myblog.model.response.CommonResponse;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.myblog.model.response.user.ConsoleGetUserContextResponse;
+import org.springframework.web.bind.annotation.*;
 
+/**
+ * 用户
+ * created by wangweijie14 on 2021/12/25
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -16,5 +19,11 @@ public class UserController {
     public CommonResponse LogIn(@RequestBody ConsoleLoginRequest request) {
         System.out.println("=====>"+request.toString());
         return ResponseFactory.success();
+    }
+
+    @GetMapping("/getUserContext")
+    public ConsoleGetUserContextResponse getUserContext(@RequestBody ConsoleGetUserContextRequest request) {
+
+        throw new UnsupportedOperationException();
     }
 }

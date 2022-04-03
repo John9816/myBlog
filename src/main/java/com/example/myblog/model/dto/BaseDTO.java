@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class BaseDTO {
     private Long id;
-    private Integer status;
     private Long createdTime;
     private Long updatedTime;
 }
