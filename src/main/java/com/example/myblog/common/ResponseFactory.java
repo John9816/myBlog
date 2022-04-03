@@ -74,10 +74,11 @@ public class ResponseFactory {
             } else {
                 setStatus.invoke(obj, data);
             }
-
+            setData.invoke(obj, data);
+            return obj;
         } catch (Exception e) {
             throw new BizRuntimeException(BaseErrorCodeEnum.SYSTEM_ERROR, e);
         }
-        return obj;
+
     }
 }

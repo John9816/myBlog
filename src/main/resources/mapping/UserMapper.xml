@@ -9,22 +9,22 @@
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="gender" jdbcType="VARCHAR" property="gender"/>
         <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
-        <result column="is_delete" jdbcType="INTEGER" property="isDeleted"/>
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
         <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
         <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
 
     </resultMap>
     <sql id="Base_Column_List">
-        id, account, password, nick_name, gender, avatar, is_delete, created_time, updated_time
+        id, account, password, nick_name, gender, avatar, is_deleted, created_time, updated_time
     </sql>
     <sql id="not_deleted">
         AND is_deleted = 1
     </sql>
     <select id="listByAccount" parameterType="java.lang.Long" resultMap="baseMap">
         select <include refid="Base_Column_List"/>
-        for user
+        from user
         where account = #{account}
-        and <include refid="not_deleted"/>
+        <include refid="not_deleted"/>
     </select>
 
 

@@ -12,7 +12,7 @@
         <result column="type" jdbcType="TINYINT" property="type"/>
         <result column="original_url" jdbcType="VARCHAR" property="originalUrl"/>
         <result column="is_top" jdbcType="INTEGER" property="isTop"/>
-        <result column="is_delete" jdbcType="INTEGER" property="isDeleted"/>
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
         <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
         <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
@@ -23,7 +23,7 @@
         status, created_time, updated_time
     </sql>
     <sql id="not_deleted">
-        AND is_delete = 1
+        AND is_deleted = 1
     </sql>
 
     <insert id="add" parameterType="com.example.myblog.model.dao.ArticleDO">
