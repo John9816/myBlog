@@ -3,9 +3,9 @@ package com.example.myblog.service.article.impl;
 
 import com.example.myblog.common.BaseErrorCodeEnum;
 import com.example.myblog.convert.AddOrUpdateArticleConditionDTOConvert;
-import com.example.myblog.exception.BizRuntimeException;
+import com.example.myblog.common.exception.BizRuntimeException;
 import com.example.myblog.mapper.ArticleMapper;
-import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
+import com.example.myblog.model.dto.article.AddOrUpdateArticleBizRequest;
 import com.example.myblog.service.article.IArticleWriteService;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class ArticleWriteServiceImpl implements IArticleWriteService {
     private ArticleMapper articleMapper;
 
     @Override
-    public void addArticle(AddOrUpdateArticleConditionDTO condition) {
+    public void addArticle(AddOrUpdateArticleBizRequest condition) {
         if (Objects.isNull(condition)) {
             return;
         }
@@ -33,7 +33,7 @@ public class ArticleWriteServiceImpl implements IArticleWriteService {
     }
 
     @Override
-    public void updateArticle(AddOrUpdateArticleConditionDTO condition) {
+    public void updateArticle(AddOrUpdateArticleBizRequest condition) {
         if (Objects.isNull(condition)) {
             return;
         }

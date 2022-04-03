@@ -13,7 +13,7 @@ import javax.validation.constraints.Positive;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class AddOrUpdateArticleConditionDTO {
+public class AddOrUpdateArticleBizRequest {
 
     @Positive
     private Long id;

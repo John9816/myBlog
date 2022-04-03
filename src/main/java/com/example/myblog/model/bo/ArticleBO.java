@@ -6,9 +6,9 @@ import lombok.*;
 /**
  * created by wangweijie14 on 2021/12/25
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class ArticleBO extends BaseBO{
 
     private Long userId;

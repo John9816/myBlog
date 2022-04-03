@@ -1,6 +1,6 @@
 package com.example.myblog.model.response.user;
 
-import com.example.myblog.model.dto.article.user.GetUserContextDTO;
+import com.example.myblog.model.dto.user.GetUserContextDTO;
 import com.example.myblog.model.response.BaseResponse;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

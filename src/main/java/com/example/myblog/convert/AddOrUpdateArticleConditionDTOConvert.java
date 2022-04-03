@@ -1,7 +1,7 @@
 package com.example.myblog.convert;
 
 import com.example.myblog.model.dao.ArticleDO;
-import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
+import com.example.myblog.model.dto.article.AddOrUpdateArticleBizRequest;
 
 import java.util.Date;
 import java.util.Objects;
@@ -15,7 +15,7 @@ public final class AddOrUpdateArticleConditionDTOConvert {
 
     }
 
-    public static ArticleDO toArticleDO(AddOrUpdateArticleConditionDTO condition) {
+    public static ArticleDO toArticleDO(AddOrUpdateArticleBizRequest condition) {
         if (Objects.isNull(condition)) {
             return null;
         }

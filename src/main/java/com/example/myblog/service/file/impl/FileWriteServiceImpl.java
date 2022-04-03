@@ -4,7 +4,7 @@
  */
 package com.example.myblog.service.file.impl;
 
-import com.example.myblog.exception.BizRuntimeException;
+import com.example.myblog.common.exception.BizRuntimeException;
 import com.example.myblog.service.file.FileWriteService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

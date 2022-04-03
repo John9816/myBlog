@@ -1,4 +1,4 @@
-package com.example.myblog.model.dto.article.user;
+package com.example.myblog.model.dto.user;
 
 import com.example.myblog.model.dto.BaseDTO;
 import lombok.Data;
@@ -12,11 +12,6 @@ public class GetUserContextDTO extends BaseDTO {
      * 账户
      */
     private Long account;
-
-    /**
-     * 密码
-     */
-    private String password;
 
     /**
      * 昵称
@@ -36,5 +31,5 @@ public class GetUserContextDTO extends BaseDTO {
     /**
      * 是否删除 1正常 2删除
      */
-    private Boolean isDelete;
+    private Boolean isDeleted;
 }

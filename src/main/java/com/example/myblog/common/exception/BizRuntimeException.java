@@ -1,4 +1,4 @@
-package com.example.myblog.exception;
+package com.example.myblog.common.exception;
 
 import com.example.myblog.common.IError;
 

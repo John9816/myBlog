@@ -5,7 +5,7 @@ import com.example.myblog.common.utils.ParameterCheckUtils;
 import com.example.myblog.common.ResponseFactory;
 import com.example.myblog.model.bo.ArticleBO;
 import com.example.myblog.model.dto.PageDTO;
-import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
+import com.example.myblog.model.dto.article.AddOrUpdateArticleBizRequest;
 import com.example.myblog.model.dto.article.ConsoleQueryArticleDTO;
 import com.example.myblog.model.request.article.ConsoleAddOrUpdateArticleRequest;
 import com.example.myblog.model.request.article.ConsoleQueryArticleRequest;
@@ -37,23 +37,23 @@ public class ArticleController {
 
     @PostMapping("/add")
     public CommonResponse addArticle(ConsoleAddOrUpdateArticleRequest request) {
-        AddOrUpdateArticleConditionDTO condition = request.getCondition();
+        AddOrUpdateArticleBizRequest bizRequest = request.getCondition();
         //校验合法性
-        if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
+        if (!ParameterCheckUtils.isValidPrimaryKey(bizRequest.getId())) {
             return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
         }
-        articleWriteService.addArticle(condition);
+        articleWriteService.addArticle(bizRequest);
         return ResponseFactory.success();
     }
 
     @PostMapping("/update")
     public CommonResponse updateArticle(ConsoleAddOrUpdateArticleRequest request) {
-        AddOrUpdateArticleConditionDTO condition = request.getCondition();
+        AddOrUpdateArticleBizRequest bizRequest = request.getCondition();
         //校验合法性
-        if (!ParameterCheckUtils.isValidPrimaryKey(condition.getId())) {
+        if (!ParameterCheckUtils.isValidPrimaryKey(bizRequest.getId())) {
             return ResponseFactory.fail(BaseErrorCodeEnum.PARAMS_ERROR, CommonResponse.class);
         }
-        articleWriteService.updateArticle(condition);
+        articleWriteService.updateArticle(bizRequest);
         return ResponseFactory.success();
     }
 

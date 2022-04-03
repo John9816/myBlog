@@ -1,6 +1,6 @@
 package com.example.myblog.model.request.article;
 
-import com.example.myblog.model.dto.article.AddOrUpdateArticleConditionDTO;
+import com.example.myblog.model.dto.article.AddOrUpdateArticleBizRequest;
 import com.example.myblog.model.request.BaseRequest;
 import lombok.*;
 
@@ -11,5 +11,5 @@ import lombok.*;
 @Data
 public class ConsoleAddOrUpdateArticleRequest extends BaseRequest {
 
-    private AddOrUpdateArticleConditionDTO condition;
+    private AddOrUpdateArticleBizRequest condition;
 }
