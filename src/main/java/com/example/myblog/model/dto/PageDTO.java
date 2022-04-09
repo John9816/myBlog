@@ -1,6 +1,7 @@
 package com.example.myblog.model.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.Max;
@@ -8,11 +9,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 页签
  * created by wangweijie14 on 2021/12/25
  */
 @Data
 @AllArgsConstructor
-@NotNull
+@Builder
 public class PageDTO {
 
     @NotNull(message = "当前页为必传项")

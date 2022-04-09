@@ -12,14 +12,16 @@
         <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
         <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
         <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
-
     </resultMap>
+
     <sql id="Base_Column_List">
         id, account, password, nick_name, gender, avatar, is_deleted, created_time, updated_time
     </sql>
+
     <sql id="not_deleted">
         AND is_deleted = 1
     </sql>
+
     <select id="listByAccount" parameterType="java.lang.Long" resultMap="baseMap">
         select <include refid="Base_Column_List"/>
         from user

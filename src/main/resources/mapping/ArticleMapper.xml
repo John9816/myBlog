@@ -19,11 +19,11 @@
 
     </resultMap>
     <sql id="Base_Column_List">
-        id, user_id, category_id, article_cover, article_title, article_content, type, original_url, is_top, is_delete,
+        id, user_id, category_id, article_cover, article_title, article_content, type, original_url, is_top, is_deleted,
         status, created_time, updated_time
     </sql>
     <sql id="not_deleted">
-        AND is_deleted = 1
+        is_deleted = 1
     </sql>
 
     <insert id="add" parameterType="com.example.myblog.model.dao.ArticleDO">
@@ -42,11 +42,10 @@
         now(),
         now()
         )
-
     </insert>
     <update id="update">
-        update article
-        set user_id = #{articleDO.userId},
+        UPDATE article
+        SET user_id = #{articleDO.userId},
             category_id = #{articleDO.categoryId},
             article_cover = #{articleDO.articleCover},
             article_title = #{articleDO.articletitle},
@@ -56,13 +55,26 @@
             is_top = #{isTop},
             status = #{status},
             updated_time = now()
-        where id = #{articleDO.id}
-          <include refid="not_deleted"></include>
+        WHERE id = #{articleDO.id}
+          AND <include refid="not_deleted"></include>
     </update>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        DELETE
+        FROM article
+        WHERE id = #{id}
+    </delete>
     <select id="listAll"  resultMap="baseMap">
-    SELECT <include refid="Base_Column_List"/> FROM
-    article
-    LIMIT #{currentPage}, #{perPage}
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        article
+        LIMIT #{currentPage}, #{perPage}
+    </select>
+    <select id="listById" resultMap="baseMap" parameterType="java.lang.Long">
+        SELECT <include refid="Base_Column_List"/> FROM
+        article
+        where id = #{id}
+        AND <include refid="not_deleted"></include>
     </select>
 
 </mapper>

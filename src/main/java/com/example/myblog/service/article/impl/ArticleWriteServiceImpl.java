@@ -2,7 +2,7 @@ package com.example.myblog.service.article.impl;
 
 
 import com.example.myblog.common.BaseErrorCodeEnum;
-import com.example.myblog.convert.AddOrUpdateArticleConditionDTOConvert;
+import com.example.myblog.converter.AddOrUpdateArticleConditionDTOConverter;
 import com.example.myblog.common.exception.BizRuntimeException;
 import com.example.myblog.mapper.ArticleMapper;
 import com.example.myblog.model.dto.article.AddOrUpdateArticleBizRequest;
@@ -26,7 +26,7 @@ public class ArticleWriteServiceImpl implements IArticleWriteService {
         if (Objects.isNull(condition)) {
             return;
         }
-        boolean success = articleMapper.add(AddOrUpdateArticleConditionDTOConvert.toArticleDO(condition)) == 1;
+        boolean success = articleMapper.add(AddOrUpdateArticleConditionDTOConverter.toArticleDO(condition)) == 1;
         if (!success) {
             throw new BizRuntimeException(BaseErrorCodeEnum.ARTICLE_INSERT_ERROR);
         }
@@ -37,9 +37,14 @@ public class ArticleWriteServiceImpl implements IArticleWriteService {
         if (Objects.isNull(condition)) {
             return;
         }
-        boolean success = articleMapper.update(AddOrUpdateArticleConditionDTOConvert.toArticleDO(condition)) == 1;
+        boolean success = articleMapper.update(AddOrUpdateArticleConditionDTOConverter.toArticleDO(condition)) == 1;
         if (!success) {
             throw new BizRuntimeException(BaseErrorCodeEnum.ARTICLE_INSERT_ERROR);
         }
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        articleMapper.deleteById(id);
     }
 }

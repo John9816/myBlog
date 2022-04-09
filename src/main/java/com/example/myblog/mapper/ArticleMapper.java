@@ -21,4 +21,8 @@ public interface ArticleMapper {
     List<ArticleDO> listAll(@Param("currentPage") Integer currentPage, @Param("perPage") Integer perPage);
 
     int update(ArticleDO articleDO);
+
+    ArticleDO listById(@Param("id") Long id);
+
+    void deleteById(@Param("id") Long id);
 }

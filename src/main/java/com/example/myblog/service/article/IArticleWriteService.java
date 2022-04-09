@@ -11,4 +11,5 @@ public interface IArticleWriteService {
 
     void updateArticle(AddOrUpdateArticleBizRequest condition);
 
+    void deleteById(Long id);
 }

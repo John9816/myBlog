@@ -1,5 +1,6 @@
 package com.example.myblog.service.article.impl;
 
+import com.example.myblog.assembler.article.ArticleBOAssembler;
 import com.example.myblog.mapper.ArticleMapper;
 import com.example.myblog.model.bo.ArticleBO;
 import com.example.myblog.model.dao.ArticleDO;
@@ -21,7 +22,12 @@ public class ArticleReadServiceImpl implements IArticleReadService {
     @Override
     public List<ArticleBO> queryConsoleArticle(Integer currentPage, Integer perPage) {
         List<ArticleDO> articleDOList = articleMapper.listAll(currentPage, perPage);
-        System.out.println(articleDOList.toString());
-        return null;
+        return ArticleBOAssembler.toArticleBOs(articleDOList);
+    }
+
+    @Override
+    public ArticleBO getById(Long id) {
+        ArticleDO articleDO = articleMapper.listById(id);
+        return ArticleBOAssembler.toArticleBO(articleDO);
     }
 }

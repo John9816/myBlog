@@ -26,6 +26,6 @@ public class ConsoleArticleDTO {
     private Integer isTop;
     private Integer isDeleted;
     private Integer status;
-    private Date    createdTime;
-    private Date    updatedTime;
+    private Long    createdTime;
+    private Long    updatedTime;
 }

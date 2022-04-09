@@ -1,9 +1,8 @@
 package com.example.myblog.controller.user;
 
 import com.example.myblog.common.ResponseFactory;
-import com.example.myblog.convert.GetUserContextDTOConvert;
+import com.example.myblog.converter.GetUserContextDTOConvert;
 import com.example.myblog.model.bo.UserBO;
-import com.example.myblog.model.dto.user.ConsoleGetUserContextDTO;
 import com.example.myblog.model.request.user.ConsoleGetUserContextRequest;
 import com.example.myblog.model.request.user.ConsoleLoginRequest;
 import com.example.myblog.model.response.CommonResponse;
@@ -33,10 +32,7 @@ public class UserController {
     @PostMapping("/getUserContext")
     public ConsoleGetUserContextResponse getUserContext(@RequestBody ConsoleGetUserContextRequest request) {
         UserBO userContext = userReadService.getUserContext(request.getAccount());
-        ConsoleGetUserContextResponse success = ResponseFactory
-                .success(GetUserContextDTOConvert.toGetUserContextDTO(userContext),
+        return ResponseFactory.success(GetUserContextDTOConvert.toGetUserContextDTO(userContext),
                         ConsoleGetUserContextResponse.class);
-        System.out.println(success.toString());
-        return success;
     }
 }
