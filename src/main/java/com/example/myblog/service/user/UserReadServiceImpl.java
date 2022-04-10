@@ -1,6 +1,7 @@
 package com.example.myblog.service.user;
 
 import com.example.myblog.assembler.user.UserBOAssembler;
+import com.example.myblog.common.utils.RedisUtil;
 import com.example.myblog.mapper.UserMapper;
 import com.example.myblog.model.bo.UserBO;
 import com.example.myblog.model.dao.UserDO;
@@ -15,6 +16,12 @@ public class UserReadServiceImpl implements IUserReadService {
 
     @Resource
     private UserMapper userMapper;
+
+    @Override
+    public UserBO login(Long account, String password) {
+        UserDO userDO = userMapper.listByAccount(account);
+        return UserBOAssembler.toUserBO(userDO);
+    }
 
     @Override
     public UserBO getUserContext(Long account) {

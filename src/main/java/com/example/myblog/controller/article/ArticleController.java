@@ -91,5 +91,9 @@ public class ArticleController {
         articleWriteService.deleteById(id);
         return ResponseFactory.success();
     }
+    @GetMapping("/test")
+    public void test() {
+        System.out.println(23231);
+    }
 
 }

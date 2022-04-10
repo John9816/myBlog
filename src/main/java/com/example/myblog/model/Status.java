@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Status {
-    private Integer code = 0;
+    private Integer code = 200;
     private String msg = "成功";
     private String failureInfo;
 }
