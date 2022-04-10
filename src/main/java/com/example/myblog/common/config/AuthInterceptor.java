@@ -1,6 +1,10 @@
-package com.example.myblog.common;
+package com.example.myblog.common.config;
 
+import com.example.myblog.common.utils.JsonUtil;
 import com.example.myblog.common.utils.RedisUtil;
+import com.example.myblog.model.Status;
+import com.example.myblog.model.response.CommonResponse;
+import com.google.gson.Gson;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.util.Objects;
+
+import static com.example.myblog.common.constant.UserErrorCodeEnum.*;
 
 /**
  * token拦截
@@ -30,7 +37,14 @@ public class AuthInterceptor implements HandlerInterceptor {
         }
         Object loginStatus = redisUtil.get(token);
         if (Objects.isNull(loginStatus)) {
-            response.getWriter().print("token错误，请查看！");
+            CommonResponse commonResponse = new CommonResponse();
+            Status status = new Status();
+            status.setCode(TOKEN_INVALID.getCode());
+            status.setMsg(TOKEN_INVALID.getMessage());
+            commonResponse.setStatus(status);
+            String data = JsonUtil.toJson(commonResponse);
+
+            response.getWriter().print(data);
             return false;
         }
         return true;

@@ -1,6 +1,5 @@
 package com.example.myblog.common.config;
 
-import com.example.myblog.common.AuthInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,7 +19,7 @@ public class AuthConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(initAuthInterceptor())
-                .addPathPatterns("/article/**") //拦截
-                .excludePathPatterns("/login/**");//放行
+                .addPathPatterns("/article/**", "/user/**")//拦截
+                .excludePathPatterns("/user/login");//放行
     }
 }

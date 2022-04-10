@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 方法缓存管理器
  * created by wangweijie14 on 2021/12/25
  */
-public class MethodCacheManager {
+public final class MethodCacheManager {
     private static final String DOT = ".";
 
     //方法缓存容器
