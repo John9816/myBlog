@@ -5,7 +5,8 @@ import com.example.myblog.common.IError;
 public enum UserErrorCodeEnum implements IError {
     //3000-4000
     ACCOUNT_OR_PASSWORD_INVALID(3000,"账号或密码错误"),
-    TOKEN_INVALID(3001,"登录状态已失效,请重新登录");
+    TOKEN_INVALID(401,"登录状态已失效,请重新登录"),
+    ;
 
     private final Integer errorCode;
     private final String  errorMsg;

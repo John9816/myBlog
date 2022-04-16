@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.myblog.mapper.UserMapper">
+
+    <resultMap id="baseMap" type="com.example.myblog.model.dao.CategoryDO">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="is_deleted" jdbcType="INTEGER" property="isDeleted"/>
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, name, is_deleted, created_time, updated_time
+    </sql>
+
+    <sql id="not_deleted">
+        AND is_deleted = 1
+    </sql>
+
+    <select id="listByAccount" parameterType="java.lang.Long" resultMap="baseMap">
+        select <include refid="Base_Column_List"/>
+        from user
+        where account = #{account}
+        <include refid="not_deleted"/>
+    </select>
+
+
+</mapper>

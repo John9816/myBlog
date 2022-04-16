@@ -1,13 +1,16 @@
 package com.example.myblog.controller.user;
 
 import com.example.myblog.assembler.user.UserBOAssembler;
+import com.example.myblog.common.BaseErrorCodeEnum;
 import com.example.myblog.common.ResponseFactory;
+import com.example.myblog.common.exception.BizRuntimeException;
 import com.example.myblog.common.utils.RedisUtil;
 import com.example.myblog.converter.GetUserContextDTOConvert;
 import com.example.myblog.model.bo.UserBO;
 import com.example.myblog.model.dto.user.ConsoleGetUserContextDTO;
 import com.example.myblog.model.dto.user.ConsoleLoginDTO;
 import com.example.myblog.model.request.user.ConsoleLoginRequest;
+import com.example.myblog.model.response.CommonResponse;
 import com.example.myblog.model.response.user.ConsoleGetUserContextResponse;
 import com.example.myblog.model.response.user.ConsoleLoginResponse;
 import com.example.myblog.service.user.IUserReadService;
@@ -59,4 +62,12 @@ public class UserController {
         return ResponseFactory.success(consoleGetUserContextDTO,
                         ConsoleGetUserContextResponse.class);
     }
+
+//    @PostMapping("/logOut")
+//    public CommonResponse logOut(HttpServletRequest request) {
+//        String token = request.getHeader("token");
+//        redisUtil.delete(token);
+//        return ResponseFactory.success();
+//
+//    }
 }

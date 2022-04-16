@@ -4,7 +4,6 @@ import com.example.myblog.common.utils.JsonUtil;
 import com.example.myblog.common.utils.RedisUtil;
 import com.example.myblog.model.Status;
 import com.example.myblog.model.response.CommonResponse;
-import com.google.gson.Gson;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.Objects;
 
 import static com.example.myblog.common.constant.UserErrorCodeEnum.*;
@@ -30,9 +28,19 @@ public class AuthInterceptor implements HandlerInterceptor {
             throws Exception {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
+        response.setHeader("Access-Control-Allow-Headers", "token");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         String token = request.getHeader("token");
-        if (StringUtils.isEmpty(token)) {
-            response.getWriter().print("用户未登录，请登录后操作！");
+
+        if (StringUtils.isEmpty(token) || Objects.isNull(redisUtil.get(token))) {
+            CommonResponse commonResponse = new CommonResponse();
+            Status status = new Status();
+            status.setCode(TOKEN_INVALID.getCode());
+            status.setMsg(TOKEN_INVALID.getMessage());
+            commonResponse.setStatus(status);
+            String data = JsonUtil.toJson(commonResponse);
+
+            response.getWriter().print(data);
             return false;
         }
         Object loginStatus = redisUtil.get(token);
