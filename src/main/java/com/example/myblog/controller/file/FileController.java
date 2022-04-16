@@ -7,8 +7,14 @@ package com.example.myblog.controller.file;
 import com.example.myblog.common.ResponseFactory;
 import com.example.myblog.model.response.CommonResponse;
 import com.example.myblog.service.file.FileWriteService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import reactor.core.publisher.Mono;
+import xyz.xuminghai.pojo.response.file.ListResponse;
+import xyz.xuminghai.template.BlockClientTemplate;
+import xyz.xuminghai.template.ReactiveClientTemplate;
 
 import javax.annotation.Resource;
 
@@ -26,11 +32,20 @@ public class FileController {
     @Resource
     private FileWriteService fileWriteService;
 
+    @Resource
+    private ReactiveClientTemplate reactiveClientTemplate;
 
-    @PostMapping("/file")
+    @Resource
+    private BlockClientTemplate blockClientTemplate;
+
+
+    @GetMapping("/file")
     @ResponseBody
-    public CommonResponse uploadPicture(@RequestParam("file") MultipartFile file) {
-        fileWriteService.uploadPicture(file);
+    public CommonResponse uploadPicture() {
+//        fileWriteService.uploadPicture(file);
+        Mono<ResponseEntity<ListResponse>> list = reactiveClientTemplate.list();
+
+        System.out.println(list);
         return ResponseFactory.success();
     }
 

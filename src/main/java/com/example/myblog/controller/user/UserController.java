@@ -62,12 +62,4 @@ public class UserController {
         return ResponseFactory.success(consoleGetUserContextDTO,
                         ConsoleGetUserContextResponse.class);
     }
-
-//    @PostMapping("/logOut")
-//    public CommonResponse logOut(HttpServletRequest request) {
-//        String token = request.getHeader("token");
-//        redisUtil.delete(token);
-//        return ResponseFactory.success();
-//
-//    }
 }

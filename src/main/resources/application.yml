@@ -13,6 +13,9 @@ spring:
 #mybatis
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
-
+xyz:
+  xuminghai:
+    client:
+      refresh-token: 2412110072af4e1789917f0c87a5f2d2
 
 
