@@ -28,7 +28,7 @@ public class AuthInterceptor implements HandlerInterceptor {
             throws Exception {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=utf-8");
-        response.setHeader("Access-Control-Allow-Headers", "token");
+        response.setHeader("Access-Control-Allow-Headers", "token, content-type");
         response.setHeader("Access-Control-Allow-Origin", "*");
         String token = request.getHeader("token");
 

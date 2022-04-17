@@ -69,10 +69,10 @@ public class ArticleController {
     }
 
 
-    @GetMapping("/query")
-    public ConsoleQueryArticleResponse queryConsoleArticle(ConsoleQueryArticleRequest request) {
+    @PostMapping("/query")
+    public ConsoleQueryArticleResponse queryConsoleArticle(@RequestBody ConsoleQueryArticleRequest request) {
         PageDTO page = request.getPage();
-        List<ArticleBO> articleBOs = articleReadService.queryConsoleArticle(page.getCurrentPage(), page.getPerPage());
+        List<ArticleBO> articleBOs = articleReadService.queryConsoleArticle(page.getCurrentPage(), page.getPrePage());
         List<ConsoleArticleDTO> consoleArticleDTOs = ConsoleArticleDTOConverter.toConsoleArticleDTOs(articleBOs);
 
         ConsoleQueryArticleDTO consoleQueryArticleDTO = new ConsoleQueryArticleDTO();

@@ -18,7 +18,7 @@ public interface ArticleMapper {
 
     int add(ArticleDO articleDO);
 
-    List<ArticleDO> listAll(@Param("currentPage") Integer currentPage, @Param("perPage") Integer perPage);
+    List<ArticleDO> listAll(@Param("currentPage") Integer currentPage, @Param("prePage") Integer prePage);
 
     int update(ArticleDO articleDO);
 

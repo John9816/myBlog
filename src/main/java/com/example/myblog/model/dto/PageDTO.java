@@ -25,7 +25,7 @@ public class PageDTO {
     @NotNull(message = "页大小为必传项")
     @Min(value = 1L, message = "页大小最小为1")
     @Max(value = 2000L, message = "页大小最大为2000")
-    private Integer perPage;
+    private Integer prePage;
 
     private Integer total;
 

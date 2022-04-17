@@ -5,7 +5,7 @@
 package com.example.myblog.service.file.impl;
 
 import com.example.myblog.common.exception.BizRuntimeException;
-import com.example.myblog.service.file.FileWriteService;
+import com.example.myblog.service.file.IFileWriteService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,7 +22,7 @@ import static com.example.myblog.common.BaseErrorCodeEnum.FILE_IS_NOT_EXIST;
  * @version 1.0:FileWriteServiceImpl.java v1.0 2022/1/17 7:27 下午 wangweijie14 Exp $
  */
 @Service
-public class FileWriteServiceImpl implements FileWriteService {
+public class FileWriteServiceImpl implements IFileWriteService {
 
     @Override
     public void uploadPicture(MultipartFile file) {

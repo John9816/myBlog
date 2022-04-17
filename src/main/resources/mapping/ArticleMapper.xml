@@ -68,7 +68,7 @@
         <include refid="Base_Column_List"/>
         FROM
         article
-        LIMIT #{currentPage}, #{perPage}
+        LIMIT #{currentPage}, #{prePage}
     </select>
     <select id="listById" resultMap="baseMap" parameterType="java.lang.Long">
         SELECT <include refid="Base_Column_List"/> FROM

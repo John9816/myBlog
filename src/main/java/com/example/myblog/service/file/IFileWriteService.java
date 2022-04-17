@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @author wangweijie14
  * @version 1.0:FileWriteService.java v1.0 2022/1/17 7:26 下午 wangweijie14 Exp $
  */
-public interface FileWriteService {
+public interface IFileWriteService {
 
     void uploadPicture(MultipartFile file);
 }

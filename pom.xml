@@ -28,11 +28,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>xyz.xuminghai</groupId>
-            <artifactId>aliyundrive-client-spring-boot-starter</artifactId>
-            <version>0.0.7-alpha</version>
-        </dependency>
 
         <!--lombok-->
         <dependency>
@@ -91,6 +86,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.21</version>
         </dependency>
 
 

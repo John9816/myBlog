@@ -19,7 +19,7 @@ public class AuthConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(initAuthInterceptor())
-                .addPathPatterns("/article/**", "/user/**")//拦截
+                .addPathPatterns("/article/**", "/user/**", "file/**")//拦截
                 .excludePathPatterns("/user/login");//放行
     }
 }
