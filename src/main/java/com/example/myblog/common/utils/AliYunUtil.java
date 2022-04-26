@@ -4,6 +4,7 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +13,8 @@ import static com.example.myblog.common.constant.AliYunConstant.*;
 
 public class AliYunUtil {
 
-    private final static String refresh_token = "cf3fb25ab4294943a2e09023ad8efab1";
+    @Value("${alipan.refresh_token}")
+    private static String refresh_token;
 
     /**
      * 获取阿里云信息
